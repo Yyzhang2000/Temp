@@ -107,6 +107,7 @@ class WideResNet(nn.Module):
                 nn.init.constant_(m.bias, 0.0)
 
     def forward(self, x):
+        B = x.shape[0]
         out = self.conv1(x)
         out = self.block1(out)
         out = self.block2(out)
@@ -114,7 +115,7 @@ class WideResNet(nn.Module):
         out = self.relu(self.bn1(out))
         # out = F.adaptive_avg_pool2d(out, 1)
         out = F.max_pool2d(out, kernel_size = (2, 2), stride=2)
-        out = out.view(-1, self.channels)
+        out = out.view(B, -1)
         return self.fc(out)
 
 
