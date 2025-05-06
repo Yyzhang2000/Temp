@@ -8,7 +8,7 @@ python train4.py \
   --dataset cifar10 \
   --num-labeled 4000 \
   --arch wideresnet \
-  --batch-size 32 \
+  --batch-size 128 \
   --total-steps 204800 \
   --lr 0.03 \
   --mu 7 \
