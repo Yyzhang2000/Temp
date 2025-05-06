@@ -680,7 +680,7 @@ def train(args, labeled_trainloader, unlabeled_trainloader, test_loader,
                 'class_confusion': class_confusion.cpu(), # 保存更新后的状态
             }, is_best, args.out)
             
-            save_epochs = [0, 50, 100, 200, 300]
+            save_epochs = [0, 20, 40, 60, 80, 100, 200, 300]
             if epoch in save_epochs:
                 save_checkpoint({
                 'epoch': epoch + 1,
